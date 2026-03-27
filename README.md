@@ -1,16 +1,41 @@
-# React + Vite
+Since you’ve built a professional portfolio with some serious projects (like an E-Wallet and a Game Engine toolkit), your README should reflect that instead of the default Vite boilerplate.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Here is a customized README.md that highlights your specific tech stack and the projects we just coded.
 
-Currently, two official plugins are available:
+🚀 Jexter's Developer Portfolio
+A modern, high-performance portfolio built with React and Vite, featuring a clean dark-mode aesthetic, responsive design, and a showcase of full-stack, mobile, and game development projects.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🛠️ Technical Arsenal
+Frontend: React, Vite, CSS Modules, Lucide Icons
 
-## React Compiler
+Backend: Django (Python), Java, MySQL
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Mobile: Kotlin, Jetpack Compose, Room DB
 
-## Expanding the ESLint configuration
+Game Dev: Godot Engine 4, GDScript
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+📂 Featured Projects
+🎬 CineHub
+Tech: React + Vite
+
+Highlight: Implemented a custom favoriting system with Local Storage persistence and a modular UI for seamless movie browsing.
+
+🎮 Tepok
+Tech: Godot 4 + GDScript
+
+Highlight: Developed a dynamic settings menu with real-time sensitivity scaling and multi-channel audio mixing.
+
+📋 WildQueue
+Tech: Java + MySQL
+
+Highlight: Digitalized campus queuing using OOP principles to create specialized views for Admins, Students, and Tellers.
+
+📱 AniVibe
+Tech: Kotlin + Jetpack Compose
+
+Highlight: A native Android app integrated with a third-party Anime API and Room Database for offline tracking.
+
+💳 BankRap E-Wallet
+Tech: Python + Django
+
+Highlight: A P2P micro-lending platform with complex MySQL schemas and real-time credit scoring logic.
