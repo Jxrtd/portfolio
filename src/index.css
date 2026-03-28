@@ -188,6 +188,27 @@ body { background-color: var(--bg-dark); color: var(--text-main); font-family: '
   max-width: 400px;
 }
 
+/* --- Social Icons Spacing --- */
+.social-group {
+  display: flex;
+  align-items: center;
+  gap: 2rem; /* This adds the space between the icons */
+  margin-left: 0.5rem; /* Optional: adds a little breathing room from the buttons */
+}
+
+.social-btn {
+  color: var(--text-dim);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-btn:hover {
+  color: #10b981; /* Glows green on hover */
+  transform: translateY(-3px); /* Lifts slightly */
+}
+
 @media (max-width: 768px) {
   .hero-image-container {
     width: 200px;

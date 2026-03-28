@@ -110,8 +110,9 @@ function Hero() {
             Creative <span className="gradient-text">Developer</span>
           </h1>
           <p className="hero-description">
-            Hi, I'm Jexter Alido. I specialize in full-stack development, mobile
-            applications, and game systems with a focus on clean code.
+            Hi, I'm Jexter Alido. I'm an aspiring developer currently learning
+            full-stack systems, mobile applications, and game development with a
+            focus on mastering clean code.
           </p>
           <div className="hero-actions">
             <a
