@@ -213,8 +213,7 @@ function CVExperience() {
               className="section-title"
               style={{ textAlign: "left", marginBottom: "2.5rem" }}
             >
-              {" "}
-              Education & <span className="gradient-text">Background</span>{" "}
+              Education & <span className="gradient-text">Background</span>
             </h2>
             <div className="timeline">
               {education.map((edu, index) => (
@@ -263,7 +262,11 @@ function Skills() {
       items: ["Spring Boot", "Django", "MySQL"],
       color: "#8b5cf6",
     },
-    { category: "Tools", items: ["Vite", "Godot 4", "Git"], color: "#f59e0b" },
+    {
+      category: "Tools",
+      items: ["Vite", "Godot 4", "Git", "TensorFlow"],
+      color: "#f59e0b",
+    },
   ];
   return (
     <section className="section" id="skills">
