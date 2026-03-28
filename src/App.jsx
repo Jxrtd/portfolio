@@ -1,5 +1,6 @@
 import React from "react";
 import myResume from "./assets/Alido_Resume (2).pdf";
+import myProfilePic from "./assets/pfp.png";
 
 // --- CUSTOM SVG COMPONENTS ---
 const GithubIcon = () => (
@@ -79,8 +80,6 @@ const CodeIcon = () => (
   </svg>
 );
 
-// --- SECTIONS ---
-
 function Navigation() {
   return (
     <nav className="nav-blur">
@@ -92,6 +91,7 @@ function Navigation() {
         </div>
         <div className="nav-links">
           <a href="#about">About</a>
+          <a href="#cv-summary">Education</a>
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
         </div>
@@ -120,7 +120,11 @@ function Hero() {
             >
               <MailIcon /> Get In Touch
             </a>
-            <a href={myResume} download className="btn btn-outline">
+            <a
+              href={myResume}
+              download="Alido_Resume.pdf"
+              className="btn btn-outline"
+            >
               <DownloadIcon /> Download CV
             </a>
             <div className="social-group">
@@ -143,22 +147,103 @@ function Hero() {
             </div>
           </div>
         </div>
+
+        {/* UPDATED VISUAL SECTION WITH PROFILE PICTURE */}
         <div className="hero-visual">
-          <div className="code-display-box">
-            <pre className="code-snippet">
-              <code>
-                <span className="token-keyword">const</span> developer = {"{"}{" "}
-                <br />
-                &nbsp;&nbsp;name:{" "}
-                <span className="token-string">"Jexter Alido"</span>,<br />
-                &nbsp;&nbsp;focus:{" "}
-                <span className="token-string">"Full-Stack"</span>,<br />
-                &nbsp;&nbsp;skills: [
-                <span className="token-string">"Java"</span>,{" "}
-                <span className="token-string">"Kotlin"</span>]<br />
-                {"}"};
-              </code>
-            </pre>
+          <div className="hero-image-container">
+            <div className="image-glow"></div>
+            <img
+              src={myProfilePic}
+              alt="Jexter Alido"
+              className="profile-img"
+            />
+          </div>
+
+          <div className="hero-code-box">
+            <div className="code-display">
+              <span className="code-braces">{"{ }"}</span>
+              <pre className="code-snippet">
+                <code>
+                  <span className="code-line">
+                    <span className="code-keyword">const</span> developer ={" "}
+                    {"{"}
+                  </span>
+                  <span className="code-line indent-1">
+                    name: <span className="code-value">"Jexter Alido"</span>,
+                  </span>
+                  <span className="code-line indent-1">
+                    focus: <span className="code-value">"Full-Stack"</span>,
+                  </span>
+                  <span className="code-line">{"}"};</span>
+                </code>
+              </pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// EDUCATION & BACKGROUND COMPONENT
+function CVExperience() {
+  const education = [
+    {
+      year: "2023 - Present",
+      title: "Bachelor of Science in Computer Science",
+      org: "Cebu Institute of Technology - University",
+      desc: "Currently a 3rd-year student specializing in software engineering and full-stack development.",
+    },
+    {
+      year: "2021 - 2023",
+      title: "Senior High - STEM",
+      org: "University of San Jose - Recoletos",
+      desc: "Focused on Science, Technology, Engineering, and Mathematics.",
+    },
+    {
+      year: "2017 - 2021",
+      title: "High School",
+      org: "University of San Jose - Recoletos",
+      desc: "Completed secondary education with a strong foundation in core sciences.",
+    },
+  ];
+
+  return (
+    <section className="section bg-alt" id="cv-summary">
+      <div className="container">
+        <div className="cv-grid">
+          <div className="cv-info">
+            <h2
+              className="section-title"
+              style={{ textAlign: "left", marginBottom: "2.5rem" }}
+            >
+              Education & <span className="gradient-text">Background</span>
+            </h2>
+
+            <div className="timeline">
+              {education.map((edu, index) => (
+                <div key={index} className="cv-item">
+                  <div className="cv-dot"></div>
+                  <div className="cv-content">
+                    <p className="cv-date">{edu.year}</p>
+                    <h3>{edu.title}</h3>
+                    <p className="cv-org">{edu.org}</p>
+                    <p className="cv-desc">{edu.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="cv-stats">
+            <div className="stat-card">
+              <span className="stat-num">5+</span>
+              <span className="stat-label">Core Projects</span>
+            </div>
+            <div className="stat-card">
+              <span className="stat-num">3+</span>
+              <span className="stat-label">Years Coding</span>
+            </div>
           </div>
         </div>
       </div>
@@ -185,13 +270,12 @@ function Skills() {
     },
     {
       category: "Tools",
-      items: ["Vite", "Godot 4", "Git", "TensorFlow"],
+      items: ["Vite", "Godot 4", "Git"],
       color: "#f59e0b",
     },
   ];
-
   return (
-    <section className="section bg-alt" id="skills">
+    <section className="section" id="skills">
       <div className="container">
         <h2 className="section-title">
           Technical <span className="gradient-text">Arsenal</span>
@@ -228,54 +312,53 @@ function Projects() {
     {
       title: "AniVibe",
       subtitle: "Kotlin",
-      desc: "Native mobile application built with Jetpack Compose, featuring a third-party Anime API and Room database.",
-      tags: ["Kotlin ,", " Jetpack ,", " Room DB "],
+      desc: "Native mobile app with Jetpack Compose and Room database.",
+      tags: ["Kotlin", "Jetpack", "Room"],
       link: "https://github.com/Jxrtd/AniVibe",
     },
     {
       title: "WildQueue",
       subtitle: "Java, MySQL",
-      desc: "A digital campus concierge system featuring specialized Object-Oriented views for Admin, Student, and Teller roles.",
-      tags: ["Java ,", " MySQL ,", "OOP "],
+      desc: "Digital concierge with specialized OOP views for Admin and Students.",
+      tags: ["Java", "MySQL", "OOP"],
       link: "https://github.com/jangkayl/WildQueue",
     },
     {
-      title: "BankRap E-Wallet",
+      title: "BankRap",
       subtitle: "Python, Django",
-      desc: "P2P micro-lending platform designed for student borrowers through a secure digital ecosystem.",
-      tags: ["Python ,", " Django ,", " MySQL "],
+      desc: "P2P micro-lending platform handling complex secure schemas.",
+      tags: ["Python", "Django", "MySQL"],
       link: "https://github.com/jangkayl/BankRap---Django",
     },
     {
       title: "CineHub",
       subtitle: "React",
-      desc: "Responsive SPA using React and Vite featuring a custom favoriting system with Local Storage persistence.",
-      tags: ["React ,", " Vite ,", " API "],
+      desc: "Responsive movie browsing SPA with Local Storage persistence.",
+      tags: ["React", "Vite", "API"],
       link: "https://github.com/Jxrtd/CineHub",
     },
     {
       title: "Tepok",
-      subtitle: "Godot 4, GDScript",
-      desc: "Customizable game configuration interface with real-time sensitivity scaling and multi-channel audio mixing.",
-      tags: ["Godot 4 ,", " GDScript ,", " Game UI "],
+      subtitle: "Godot 4",
+      desc: "Puzzle platformer with dynamic UI and audio systems.",
+      tags: ["Godot 4", "GDScript"],
       link: "https://github.com/drewdreww/tepok-game",
     },
   ];
-
   return (
-    <section className="section" id="projects">
+    <section className="section bg-alt" id="projects">
       <div className="container">
         <h2 className="section-title">
           Featured <span className="gradient-text">Works</span>
         </h2>
-        <div className="project-bento-grid">
+        <div className="project-grid">
           {projects.map((p, i) => (
-            <div key={i} className="bento-project-card">
+            <div key={i} className="glass-project-card">
               <div className="project-header">
                 <h3>{p.title}</h3>
                 <span className="project-subtitle">{p.subtitle}</span>
               </div>
-              <p className="project-desc">{p.desc}</p>
+              <p className="project-desc-long">{p.desc}</p>
               <div className="tag-row">
                 {p.tags.map((t) => (
                   <span key={t} className="mini-tag">
@@ -289,7 +372,7 @@ function Projects() {
                 rel="noreferrer"
                 className="project-link"
               >
-                View Repository →
+                View Repo →
               </a>
             </div>
           ))}
@@ -305,6 +388,7 @@ function App() {
       <Navigation />
       <main>
         <Hero />
+        <CVExperience />
         <Skills />
         <Projects />
       </main>
@@ -314,5 +398,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
