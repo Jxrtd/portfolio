@@ -147,8 +147,6 @@ function Hero() {
             </div>
           </div>
         </div>
-
-        {/* UPDATED VISUAL SECTION WITH PROFILE PICTURE */}
         <div className="hero-visual">
           <div className="hero-image-container">
             <div className="image-glow"></div>
@@ -158,7 +156,6 @@ function Hero() {
               className="profile-img"
             />
           </div>
-
           <div className="hero-code-box">
             <div className="code-display">
               <span className="code-braces">{"{ }"}</span>
@@ -185,7 +182,6 @@ function Hero() {
   );
 }
 
-// EDUCATION & BACKGROUND COMPONENT
 function CVExperience() {
   const education = [
     {
@@ -219,7 +215,6 @@ function CVExperience() {
             >
               Education & <span className="gradient-text">Background</span>
             </h2>
-
             <div className="timeline">
               {education.map((edu, index) => (
                 <div key={index} className="cv-item">
@@ -234,7 +229,6 @@ function CVExperience() {
               ))}
             </div>
           </div>
-
           <div className="cv-stats">
             <div className="stat-card">
               <span className="stat-num">5+</span>
@@ -270,7 +264,7 @@ function Skills() {
     },
     {
       category: "Tools",
-      items: ["Vite", "Godot 4", "Git"],
+      items: ["Vite", "Godot 4", "Git", "TensorFlow"],
       color: "#f59e0b",
     },
   ];
