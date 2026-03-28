@@ -85,7 +85,7 @@ body { background-color: var(--bg-dark); color: var(--text-main); font-family: '
 .mini-tag { font-size: 0.75rem; color: #10b981; background: rgba(16, 185, 129, 0.1); padding: 0.2rem 0.6rem; border-radius: 4px; margin-right: 0.5rem; }
 
 /* --- Education / CV Section styling --- */
-./* --- Updated Education Timeline Styling --- */
+/* --- Updated Education Timeline Styling --- */
 .timeline {
   display: flex;
   flex-direction: column;
