@@ -250,12 +250,12 @@ function Skills() {
   const skills = [
     {
       category: "Languages",
-      items: ["Java", "Python", "C++", "Kotlin", "JS"],
+      items: ["Java", "Python", "C", "C++", "Kotlin", "JS"],
       color: "#10b981",
     },
     {
       category: "Frontend",
-      items: ["React", "CSS Modules", "Jetpack Compose"],
+      items: ["React", "CSS Modules", "HTML"],
       color: "#3b82f6",
     },
     {
@@ -265,7 +265,7 @@ function Skills() {
     },
     {
       category: "Tools",
-      items: ["Vite", "Godot 4", "Git", "TensorFlow"],
+      items: ["Vite", "Godot 4", "Git"],
       color: "#f59e0b",
     },
   ];
