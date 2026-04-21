@@ -1,5 +1,5 @@
 import React from "react";
-import myResume from "./assets/Alido_Resume (2).pdf";
+import myResume from "./assets/ALIDO-RESUME.pdf";
 import myProfilePic from "./assets/pfp.png";
 
 // --- CUSTOM SVG COMPONENTS ---
@@ -85,15 +85,13 @@ function Navigation() {
     <nav className="nav-blur">
       <div className="nav-content">
         <div className="nav-logo">
-          <span className="logo-bracket">{"<"}</span>
-          <span className="logo-text">Jexter</span>
-          <span className="logo-bracket">{"/>"}</span>
+          <span className="logo-text">⚓ Jexter Alido</span>
         </div>
         <div className="nav-links">
-          <a href="#about">About</a>
-          <a href="#cv-summary">Education</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
+          <a href="#about">The Captain</a>
+          <a href="#cv-summary">Logbook</a>
+          <a href="#skills">Haki</a>
+          <a href="#projects">Adventures</a>
         </div>
       </div>
     </nav>
@@ -105,28 +103,28 @@ function Hero() {
     <section className="hero" id="about">
       <div className="hero-container">
         <div className="hero-content">
-          <div className="hero-badge">3rd Year BSCS @ CIT-U</div>
+          <div className="hero-badge">WANTED: 3RD YEAR BSCS @ CIT-U</div>
           <h1 className="hero-title">
-            Creative <span className="gradient-text">Developer</span>
+            KING OF <span className="gradient-text">CODE</span>
           </h1>
           <p className="hero-description">
-            Hi, I'm Jexter Alido. I'm an aspiring developer currently learning
-            full-stack systems, mobile applications, and game development with a
-            focus on mastering clean code.
+            Hi, I'm Jexter Alido. I'm an aspiring and learning developer
+            currently navigating the Grand Line of full-stack systems, mobile
+            applications, and game development.
           </p>
           <div className="hero-actions">
             <a
               href="mailto:aldiojexter790@gmail.com"
               className="btn btn-primary"
             >
-              <MailIcon /> Get In Touch
+              <MailIcon /> Send Pigeon
             </a>
             <a
               href={myResume}
               download="Alido_Resume.pdf"
               className="btn btn-outline"
             >
-              <DownloadIcon /> Download CV
+              <DownloadIcon /> Treasure Map (CV)
             </a>
             <div className="social-group">
               <a
@@ -150,7 +148,6 @@ function Hero() {
         </div>
         <div className="hero-visual">
           <div className="hero-image-container">
-            <div className="image-glow"></div>
             <img
               src={myProfilePic}
               alt="Jexter Alido"
@@ -159,18 +156,18 @@ function Hero() {
           </div>
           <div className="hero-code-box">
             <div className="code-display">
-              <span className="code-braces">{"{ }"}</span>
+              <span className="code-braces">{"// Pirate.config"}</span>
               <pre className="code-snippet">
                 <code>
                   <span className="code-line">
-                    <span className="code-keyword">const</span> developer ={" "}
-                    {"{"}
+                    <span className="code-keyword">const</span> captain = {"{"}
                   </span>
                   <span className="code-line indent-1">
                     name: <span className="code-value">"Jexter Alido"</span>,
                   </span>
                   <span className="code-line indent-1">
-                    focus: <span className="code-value">"Full-Stack"</span>,
+                    role:{" "}
+                    <span className="code-value">"Full-Stack Navigator"</span>,
                   </span>
                   <span className="code-line">{"}"};</span>
                 </code>
@@ -186,22 +183,22 @@ function Hero() {
 function CVExperience() {
   const education = [
     {
+      year: "June 2026",
+      title: "Incoming Software Engineering Intern",
+      org: "Thinking Machines Data Science",
+      desc: "Selected for a 10-week paid internship program.",
+    },
+    {
       year: "2023 - Present",
       title: "Bachelor of Science in Computer Science",
       org: "Cebu Institute of Technology - University",
-      desc: "Currently a 3rd-year student specializing in software engineering and full-stack development.",
+      desc: "3rd-year student specializing in software engineering and full-stack development.",
     },
     {
       year: "2021 - 2023",
       title: "Senior High - STEM",
       org: "University of San Jose - Recoletos",
       desc: "Focused on Science, Technology, Engineering, and Mathematics.",
-    },
-    {
-      year: "2017 - 2021",
-      title: "High School",
-      org: "University of San Jose - Recoletos",
-      desc: "Completed secondary education with a strong foundation in core sciences.",
     },
   ];
 
@@ -214,7 +211,7 @@ function CVExperience() {
               className="section-title"
               style={{ textAlign: "left", marginBottom: "2.5rem" }}
             >
-              Education & <span className="gradient-text">Background</span>
+              The <span className="gradient-text">Logbook</span>
             </h2>
             <div className="timeline">
               {education.map((edu, index) => (
@@ -233,11 +230,11 @@ function CVExperience() {
           <div className="cv-stats">
             <div className="stat-card">
               <span className="stat-num">5+</span>
-              <span className="stat-label">Core Projects</span>
+              <span className="stat-label">Grand Feats (Projects)</span>
             </div>
             <div className="stat-card">
               <span className="stat-num">3+</span>
-              <span className="stat-label">Years Coding</span>
+              <span className="stat-label">Years at Sea (Coding)</span>
             </div>
           </div>
         </div>
@@ -249,31 +246,31 @@ function CVExperience() {
 function Skills() {
   const skills = [
     {
-      category: "Languages",
-      items: ["Java", "Python", "C", "C++", "Kotlin", "JS"],
-      color: "#10b981",
+      category: "Observation Haki (Languages)",
+      items: ["Java", "Python", "Kotlin", "JS", "C/C++"],
+      color: "#d4a017",
     },
     {
-      category: "Frontend",
-      items: ["React", "CSS Modules", "HTML"],
-      color: "#3b82f6",
+      category: "Armament Haki (Frontend)",
+      items: ["React", "NextJS", "CSS Modules"],
+      color: "#b91d1d",
     },
     {
-      category: "Backend",
+      category: "Conqueror's Haki (Backend)",
       items: ["Spring Boot", "Django", "MySQL"],
-      color: "#8b5cf6",
+      color: "#2d241e",
     },
     {
-      category: "Tools",
-      items: ["Vite", "Godot 4", "Git"],
-      color: "#f59e0b",
+      category: "Navigator Tools",
+      items: ["Godot 4", "Git"],
+      color: "#3b82f6",
     },
   ];
   return (
     <section className="section" id="skills">
       <div className="container">
         <h2 className="section-title">
-          Technical <span className="gradient-text">Arsenal</span>
+          Technical <span className="gradient-text">Haki</span>
         </h2>
         <div className="skills-bento-grid">
           {skills.map((s, i) => (
@@ -282,7 +279,6 @@ function Skills() {
               className="skill-bento-card"
               style={{ "--accent-color": s.color }}
             >
-              <div className="skill-card-glow"></div>
               <div className="skill-header">
                 <CodeIcon />
                 <h3>{s.category}</h3>
@@ -305,46 +301,39 @@ function Skills() {
 function Projects() {
   const projects = [
     {
-      title: "AniVibe",
-      subtitle: "Kotlin",
-      desc: "Engineered a native Android application using Jetpack Compose for modern UI and Room DB for robust offline data persistence.",
-      tags: ["Kotlin", "Jetpack", "Room"],
-      link: "https://github.com/Jxrtd/AniVibe",
+      title: "TEPOK",
+      subtitle: "Godot 4",
+      desc: "1st Runner Up @ UP Game Jam. A collaborative puzzle platformer featuring dynamic UI and Audio systems.",
+      tags: ["Godot 4", "GDScript", "Team"],
+      link: "https://github.com/drewdreww/tepok-game",
     },
     {
-      title: "WildQueue",
-      subtitle: "Java, MySQL",
-      desc: "Developed a campus-wide digital concierge utilizing Object-Oriented principles to manage multi-role authentication and real-time transaction states.",
-      tags: ["Java", "MySQL", "OOP"],
-      link: "https://github.com/jangkayl/WildQueue",
+      title: "UniMarket (ERP)",
+      subtitle: "Java, Spring Boot",
+      desc: "Enterprise student management backend with RBAC using Spring Boot and MySQL.",
+      tags: ["Java", "Spring Boot", "NextJS"],
+      link: "https://github.com/Jxrtd/UniMarket",
     },
     {
       title: "BankRap",
       subtitle: "Python, Django",
-      desc: "Architected a peer-to-peer micro-lending platform implementing secure database schemas and complex backend logic for financial transactions.",
+      desc: "Peer-to-peer micro-lending platform implementing secure financial transaction logic.",
       tags: ["Python", "Django", "MySQL"],
       link: "https://github.com/jangkayl/BankRap---Django",
     },
     {
-      title: "CineHub",
-      subtitle: "React",
-      desc: "Built a responsive SPA that integrates public APIs and leverages Local Storage to maintain user preferences and persistent data state.",
-      tags: ["React", "Vite", "API"],
-      link: "https://github.com/Jxrtd/CineHub",
-    },
-    {
-      title: "Tepok",
-      subtitle: "Godot 4",
-      desc: "Collaborated on an award-winning puzzle platformer, scripting complex gameplay mechanics and implementing dynamic UI/Audio systems in GDScript.",
-      tags: ["Godot 4", "GDScript"],
-      link: "https://github.com/drewdreww/tepok-game",
+      title: "WildQueue (QMS)",
+      subtitle: "Java, MySQL",
+      desc: "Digital concierge capstone built for CIT-U utilizing solid OOP foundations.",
+      tags: ["Java", "MySQL", "OOP"],
+      link: "https://github.com/jangkayl/WildQueue",
     },
   ];
   return (
     <section className="section bg-alt" id="projects">
       <div className="container">
         <h2 className="section-title">
-          Featured <span className="gradient-text">Works</span>
+          Epic <span className="gradient-text">Adventures</span>
         </h2>
         <div className="project-grid">
           {projects.map((p, i) => (
@@ -388,7 +377,7 @@ function App() {
         <Projects />
       </main>
       <footer className="footer">
-        <p>© {new Date().getFullYear()} Jexter Alido | CIT University</p>
+        <p>© {new Date().getFullYear()} Jexter Alido | Sailing through CIT-U</p>
       </footer>
     </div>
   );
