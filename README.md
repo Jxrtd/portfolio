@@ -1,7 +1,3 @@
-Since you’ve built a professional portfolio with some serious projects (like an E-Wallet and a Game Engine toolkit), your README should reflect that instead of the default Vite boilerplate.
-
-Here is a customized README.md that highlights your specific tech stack and the projects we just coded.
-
 🚀 Jexter's Developer Portfolio
 A modern, high-performance portfolio built with React and Vite, featuring a clean dark-mode aesthetic, responsive design, and a showcase of full-stack, mobile, and game development projects.
 
