@@ -1,3 +1,4 @@
+/* --- Variables & Reset --- */
 :root {
   --bg-dark: #fbf1d1;      /* Aged Parchment Map */
   --bg-alt: #f4e4bc;       /* Map Creases */
@@ -12,7 +13,12 @@
   --manga-shadow: 10px 10px 0px #2d241e;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+  scroll-behavior: smooth; 
+}
 
 body { 
   background-color: var(--bg-dark); 
@@ -52,6 +58,7 @@ body::before {
   backdrop-filter: blur(10px); 
   border-bottom: var(--border); 
 }
+
 .nav-content { 
   max-width: 1200px; 
   margin: 0 auto; 
@@ -60,14 +67,23 @@ body::before {
   justify-content: space-between; 
   align-items: center; 
 }
+
 .logo-text { font-weight: 900; text-transform: uppercase; letter-spacing: 2px; }
-.nav-links a { text-decoration: none; color: var(--text-dim); margin-left: 2rem; font-weight: 700; }
+
+.nav-links a { 
+  text-decoration: none; 
+  color: var(--text-dim); 
+  margin-left: 2rem; 
+  font-weight: 700; 
+}
+
 .nav-links a:hover { color: var(--op-red); }
 
-/* --- Hero & Buttons --- */
+/* --- Hero Section --- */
 .hero { 
   padding: 10rem 2rem 6rem; 
 }
+
 .hero-container { 
   max-width: 1200px; 
   margin: 0 auto; 
@@ -76,11 +92,13 @@ body::before {
   gap: 4rem; 
   align-items: center; 
 }
+
 .hero-title { 
   font-size: 4.5rem; 
   margin: 1.5rem 0; 
   line-height: 1.1; 
 }
+
 .hero-description { 
   font-size: 1.2rem; 
   color: var(--text-dim); 
@@ -88,88 +106,64 @@ body::before {
   margin-bottom: 2.5rem; 
 }
 
-/* RESTRUCTURED hero-actions to match your image */
 .hero-actions { 
   display: flex; 
   align-items: center; 
-  justify-content: space-between; /* Pushes buttons to left, social to right */
-  gap: 1.5rem; /* For when they stack on mobile */
+  justify-content: flex-start; 
+  gap: 1.5rem; 
   flex-wrap: wrap; 
-  width: 100%; /* Ensures the space-between works */
-  max-width: 700px; /* Optional: prevents them from getting too far apart on large screens */
+  width: 100%; 
 }
 
-/* Base button styles */
+/* --- Buttons & Socials --- */
 .btn { 
   padding: 0.8rem 1.8rem; 
-  border-radius: 50px; 
+  border: var(--border); 
+  font-weight: 700; 
   display: flex; 
   align-items: center; 
   gap: 0.75rem; 
-  font-weight: 600; 
   text-decoration: none; 
-  transition: 0.3s; 
-  font-size: 1rem;
+  transition: 0.3s;
 }
 
-/* Primary "Get In Touch" button colors */
 .btn-primary { 
-  background: var(--accent-gradient); 
+  background: var(--op-gold); 
   color: white; 
+  box-shadow: 4px 4px 0px #2d241e; 
 }
 
-/* Outline "Download CV" button styles */
 .btn-outline { 
-  background-color: #010409; /* Matches your code snippet bg for outline consistency */
-  border: 1px solid var(--border); 
+  background: #fff; 
   color: var(--text-main); 
+  box-shadow: 4px 4px 0px #2d241e; 
 }
 
-.btn-outline:hover { 
-  background: rgba(255, 255, 255, 0.05); 
-  border-color: #3b82f6; 
-  transform: translateY(-3px); 
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 6px 6px 0px #2d241e;
 }
 
-/* --- Social Icons Spacing --- */
 .social-group {
   display: flex;
   align-items: center;
-  gap: 1.5rem; /* Restored tight gap for icons on the right */
+  gap: 1.5rem;
 }
 
 .social-btn {
   color: var(--text-dim);
   transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 1.2rem;
 }
 
 .social-btn:hover {
-  color: #10b981; /* Glows green on hover */
-  transform: translateY(-3px); /* Lifts slightly */
+  color: #10b981; 
+  transform: translateY(-3px); 
 }
 
-/* Update mobile layout for hero section */
-@media (max-width: 768px) {
-  .hero-container { 
-    grid-template-columns: 1fr; 
-    text-align: center; 
-  }
-  
-  .hero-actions { 
-    justify-content: center; /* Center everything on mobile */
-    gap: 2rem; /* Give stack items space */
-  }
-}
-
-/* Buttons & Visuals */
-.btn { padding: 0.8rem 1.8rem; border: var(--border); font-weight: 700; display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
-.btn-primary { background: var(--op-gold); color: white; box-shadow: 4px 4px 0px #2d241e; }
-.btn-outline { background: #fff; color: var(--text-main); box-shadow: 4px 4px 0px #2d241e; }
-
+/* --- Visuals --- */
 .hero-visual { display: flex; flex-direction: column; gap: 2rem; align-items: center; }
+
 .hero-image-container {
   width: 280px;
   height: 280px;
@@ -178,16 +172,17 @@ body::before {
   border: var(--border-thick);
   box-shadow: var(--manga-shadow);
 }
+
 .profile-img { width: 100%; height: 100%; object-fit: cover; filter: sepia(0.3); }
 
-/* --- Sections --- */
+/* --- Content Sections --- */
 .section { padding: 8rem 2rem; }
 .bg-alt { background-color: var(--bg-alt); border-top: var(--border); border-bottom: var(--border); }
 .container { max-width: 1200px; margin: 0 auto; }
 .section-title { font-size: 3rem; margin-bottom: 4rem; text-align: center; font-weight: 900; }
 
-/* CV / Education Grid (1.5fr 1fr) */
-.cv-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; align-items: center; }
+/* CV / Education Grid */
+.cv-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; align-items: start; }
 .cv-item { position: relative; padding-left: 2.5rem; border-left: 3px solid #2d241e; padding-bottom: 2rem; }
 .cv-dot { position: absolute; left: -11px; top: 5px; width: 18px; height: 18px; background: var(--op-gold); border: 3px solid #2d241e; }
 .cv-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
@@ -201,10 +196,56 @@ body::before {
 .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
 .glass-project-card { background: #fff; border: var(--border); padding: 2rem; box-shadow: var(--manga-shadow); }
 
-.code-display { background: #1a1d23; border: var(--border); padding: 2.5rem; color: #fff; box-shadow: var(--manga-shadow); }
+.code-display { 
+  background: #1a1d23; 
+  border: var(--border); 
+  padding: 2.5rem; 
+  color: #fff; 
+  box-shadow: var(--manga-shadow); 
+  overflow-x: auto;
+}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+
+@media (max-width: 1024px) {
+  .hero-title { font-size: 3.5rem; }
+  .hero-container, .cv-grid { gap: 2rem; }
+}
 
 @media (max-width: 768px) {
-  .hero-container, .cv-grid { grid-template-columns: 1fr; text-align: center; }
-  .hero-title { font-size: 3rem; }
   .nav-links { display: none; }
+  .nav-content { justify-content: center; }
+
+  .hero { padding: 8rem 1rem 4rem; }
+  .hero-container { 
+    grid-template-columns: 1fr; 
+    text-align: center; 
+  }
+
+  .hero-actions { 
+    justify-content: center; 
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .social-group { justify-content: center; width: 100%; }
+  .btn { width: 100%; justify-content: center; }
+
+  .cv-grid { grid-template-columns: 1fr; }
+  .cv-stats { grid-template-columns: 1fr; }
+
+  .section { padding: 4rem 1.5rem; }
+  .section-title { font-size: 2.2rem; }
+  
+  .hero-image-container {
+    width: 240px;
+    height: 240px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title { font-size: 2.2rem; }
+  .code-display { padding: 1.2rem; font-size: 0.85rem; }
+  .skill-bento-card { padding: 1.5rem; }
 }
