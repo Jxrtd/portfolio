@@ -183,12 +183,6 @@ function Hero() {
 function CVExperience() {
   const education = [
     {
-      year: "June 2026",
-      title: "Incoming Software Engineering Intern",
-      org: "Thinking Machines Data Science",
-      desc: "Selected for a 10-week paid internship program.",
-    },
-    {
       year: "2023 - Present",
       title: "Bachelor of Science in Computer Science",
       org: "Cebu Institute of Technology - University",
