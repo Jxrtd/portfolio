@@ -124,7 +124,7 @@ function Hero() {
               download="Alido_Resume.pdf"
               className="btn btn-outline"
             >
-              <DownloadIcon /> Treasure Map (CV)
+              <DownloadIcon /> Treasure Map (RESUME)
             </a>
             <div className="social-group">
               <a
