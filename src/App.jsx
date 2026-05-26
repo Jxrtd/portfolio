@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import myResume from "./assets/ALIDO-RESUME.pdf";
 import myProfilePic from "./assets/pfp.png";
 
@@ -80,18 +80,50 @@ const CodeIcon = () => (
   </svg>
 );
 
+// --- INTERACTIVE HOOK ---
+function usePowEffect() {
+  const [pows, setPows] = useState([]);
+
+  const addPow = (e) => {
+    const texts = ["ERROR!", "SYNC!", "BEEP!", "OVERLOAD!", "GLITCH!", "ACCESS!"];
+    const text = texts[Math.floor(Math.random() * texts.length)];
+    const newPow = {
+      id: Date.now(),
+      x: e.clientX,
+      y: e.clientY,
+      text: text,
+    };
+    setPows((prev) => [...prev, newPow]);
+    setTimeout(() => {
+      setPows((prev) => prev.filter((p) => p.id !== newPow.id));
+    }, 500);
+  };
+
+  useEffect(() => {
+    window.addEventListener("click", addPow);
+    return () => window.removeEventListener("click", addPow);
+  }, []);
+
+  return pows;
+}
+
 function Navigation() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <nav className="nav-blur">
       <div className="nav-content">
         <div className="nav-logo">
-          <span className="logo-text">⚓ Jexter Alido</span>
+          <span className="logo-text">⚡ JEXTER_OS</span>
         </div>
-        <div className="nav-links">
-          <a href="#about">The Captain</a>
-          <a href="#cv-summary">Logbook</a>
-          <a href="#skills">Haki</a>
-          <a href="#projects">Adventures</a>
+        <button className="mobile-menu-toggle" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? "✕" : "☰"}
+        </button>
+        <div className={`nav-links ${isOpen ? "open" : ""}`}>
+          <a href="#about" onClick={() => setIsOpen(false)}>ROOT</a>
+          <a href="#cv-summary" onClick={() => setIsOpen(false)}>LOGS</a>
+          <a href="#skills" onClick={() => setIsOpen(false)}>MODULES</a>
+          <a href="#projects" onClick={() => setIsOpen(false)}>TASKS</a>
         </div>
       </div>
     </nav>
@@ -100,78 +132,57 @@ function Navigation() {
 
 function Hero() {
   return (
-    <section className="hero" id="about">
-      <div className="hero-container">
-        <div className="hero-content">
-          <div className="hero-badge">WANTED: 3RD YEAR BSCS @ CIT-U</div>
-          <h1 className="hero-title">
-            KING OF <span className="gradient-text">CODE</span>
-          </h1>
-          <p className="hero-description">
-            Hi, I'm Jexter Alido. I'm an aspiring and learning developer
-            currently navigating the Grand Line of full-stack systems, mobile
-            applications, and game development.
-          </p>
-          <div className="hero-actions">
-            <a
-              href="mailto:aldiojexter790@gmail.com"
-              className="btn btn-primary"
-            >
-              <MailIcon /> Send Pigeon
-            </a>
-            <a
-              href={myResume}
-              download="Alido_Resume.pdf"
-              className="btn btn-outline"
-            >
-              <DownloadIcon /> Treasure Map (RESUME)
-            </a>
-            <div className="social-group">
+    <section className="hero section" id="about">
+      <div className="container">
+        <div className="hero-container">
+          <div className="hero-content">
+            <div className="hero-badge">VERSION 1.0.3 // CIT-U</div>
+            <h1 className="hero-title">
+              THE <span className="gradient-text">VOID</span> RUNNER
+            </h1>
+            <p className="hero-description">
+              Initiating sequence... I am Jexter Alido. A full-stack architect 
+              operating in the digital shadows. Specialized in mobile systems, 
+              game engines, and high-performance backends.
+            </p>
+            <div className="hero-actions">
               <a
-                href="https://github.com/Jxrtd"
-                target="_blank"
-                rel="noreferrer"
-                className="social-btn"
+                href="mailto:aldiojexter790@gmail.com"
+                className="btn btn-primary"
               >
-                <GithubIcon />
+                <MailIcon /> ESTABLISH_LINK
               </a>
               <a
-                href="https://www.linkedin.com/in/jexteralido/"
-                target="_blank"
-                rel="noreferrer"
-                className="social-btn"
+                href={myResume}
+                download="Alido_Resume.pdf"
+                className="btn btn-outline"
               >
-                <LinkedinIcon />
+                <DownloadIcon /> DATA_CORE (RESUME)
               </a>
             </div>
           </div>
-        </div>
-        <div className="hero-visual">
-          <div className="hero-image-container">
-            <img
-              src={myProfilePic}
-              alt="Jexter Alido"
-              className="profile-img"
-            />
-          </div>
-          <div className="hero-code-box">
-            <div className="code-display">
-              <span className="code-braces">{"// Pirate.config"}</span>
-              <pre className="code-snippet">
-                <code>
-                  <span className="code-line">
-                    <span className="code-keyword">const</span> captain = {"{"}
-                  </span>
-                  <span className="code-line indent-1">
-                    name: <span className="code-value">"Jexter Alido"</span>,
-                  </span>
-                  <span className="code-line indent-1">
-                    role:{" "}
-                    <span className="code-value">"Full-Stack Navigator"</span>,
-                  </span>
-                  <span className="code-line">{"}"};</span>
-                </code>
-              </pre>
+          <div className="hero-visual">
+            <div className="hero-image-container">
+              <img
+                src={myProfilePic}
+                alt="Jexter Alido"
+                className="profile-img"
+              />
+            </div>
+            <div className="hero-code-box">
+              <div className="code-display">
+                <pre>
+                  <code>
+                    <span style={{ color: "#ff00ff" }}>class</span> Hero {"{"}
+                    {"\n  "}name:{" "}
+                    <span style={{ color: "#ffff00" }}>"Jexter"</span>,{"\n  "}
+                    power:{" "}
+                    <span style={{ color: "#ffff00" }}>"Full-Stack"</span>
+                    {"\n"}
+                    {"}"}
+                  </code>
+                </pre>
+              </div>
             </div>
           </div>
         </div>
@@ -186,50 +197,44 @@ function CVExperience() {
       year: "2023 - Present",
       title: "Bachelor of Science in Computer Science",
       org: "Cebu Institute of Technology - University",
-      desc: "3rd-year student specializing in software engineering and full-stack development.",
+      desc: "Honing technical abilities in software engineering and full-stack development.",
     },
     {
       year: "2021 - 2023",
       title: "Senior High - STEM",
       org: "University of San Jose - Recoletos",
-      desc: "Focused on Science, Technology, Engineering, and Mathematics.",
+      desc: "Initial training in Science, Technology, Engineering, and Mathematics.",
     },
   ];
 
   return (
-    <section className="section bg-alt" id="cv-summary">
+    <section className="section" id="cv-summary">
       <div className="container">
-        <div className="cv-grid">
-          <div className="cv-info">
-            <h2
-              className="section-title"
-              style={{ textAlign: "left", marginBottom: "2.5rem" }}
-            >
-              The <span className="gradient-text">Logbook</span>
-            </h2>
-            <div className="timeline">
-              {education.map((edu, index) => (
-                <div key={index} className="cv-item">
-                  <div className="cv-dot"></div>
-                  <div className="cv-content">
-                    <p className="cv-date">{edu.year}</p>
-                    <h3>{edu.title}</h3>
-                    <p className="cv-org">{edu.org}</p>
-                    <p className="cv-desc">{edu.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="cv-stats">
-            <div className="stat-card">
-              <span className="stat-num">5+</span>
-              <span className="stat-label">Grand Feats (Projects)</span>
-            </div>
-            <div className="stat-card">
-              <span className="stat-num">3+</span>
-              <span className="stat-label">Years at Sea (Coding)</span>
-            </div>
+        <h2 className="section-title">
+          CORE <span className="gradient-text">LOGS</span>
+        </h2>
+        <div className="comic-panel">
+          <div className="timeline">
+            {education.map((edu, index) => (
+              <div
+                key={index}
+                className="cv-item"
+                style={{
+                  borderLeft: "4px solid var(--primary-cyan)",
+                  paddingLeft: "1.5rem",
+                  marginBottom: "2rem",
+                }}
+              >
+                <p style={{ fontWeight: 900, color: "var(--primary-pink)" }}>
+                  {edu.year}
+                </p>
+                <h3 style={{ fontFamily: "Bangers", fontSize: "1.5rem", color: "white" }}>
+                  {edu.title}
+                </h3>
+                <p style={{ fontWeight: 700 }}>{edu.org}</p>
+                <p>{edu.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -240,48 +245,67 @@ function CVExperience() {
 function Skills() {
   const skills = [
     {
-      category: "Observation Haki (Languages)",
-      items: ["Java", "Python", "Kotlin", "JS", "C/C++"],
-      color: "#d4a017",
+      category: "RUNTIME_LANGS",
+      items: [
+        { name: "Java", icon: "java/java-original.svg" },
+        { name: "Python", icon: "python/python-original.svg" },
+        { name: "Kotlin", icon: "kotlin/kotlin-original.svg" },
+        { name: "JS", icon: "javascript/javascript-original.svg" },
+        { name: "C++", icon: "cplusplus/cplusplus-original.svg" },
+      ],
     },
     {
-      category: "Armament Haki (Frontend)",
-      items: ["React", "NextJS", "CSS Modules"],
-      color: "#b91d1d",
+      category: "INTERFACE_MODULES",
+      items: [
+        { name: "React", icon: "react/react-original.svg" },
+        { name: "NextJS", icon: "nextjs/nextjs-original.svg" },
+        { name: "CSS", icon: "css3/css3-original.svg" },
+      ],
     },
     {
-      category: "Conqueror's Haki (Backend)",
-      items: ["Spring Boot", "Django", "MySQL"],
-      color: "#2d241e",
+      category: "DATA_STRUCTURES",
+      items: [
+        { name: "Spring", icon: "spring/spring-original.svg" },
+        { name: "Django", icon: "django/django-plain.svg" },
+        { name: "MySQL", icon: "mysql/mysql-original.svg" },
+      ],
     },
     {
-      category: "Navigator Tools",
-      items: ["Godot 4", "Git"],
-      color: "#3b82f6",
+      category: "KERNEL_TOOLS",
+      items: [
+        { name: "Godot", icon: "godot/godot-original.svg" },
+        { name: "Git", icon: "git/git-original.svg" },
+      ],
     },
   ];
+
+  const getIconUrl = (path) =>
+    `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${path}`;
+
   return (
     <section className="section" id="skills">
       <div className="container">
         <h2 className="section-title">
-          Technical <span className="gradient-text">Haki</span>
+          TECH <span className="gradient-text">MODULES</span>
         </h2>
         <div className="skills-bento-grid">
           {skills.map((s, i) => (
-            <div
-              key={i}
-              className="skill-bento-card"
-              style={{ "--accent-color": s.color }}
-            >
+            <div key={i} className="skill-bento-card">
               <div className="skill-header">
                 <CodeIcon />
                 <h3>{s.category}</h3>
               </div>
               <div className="skill-tags-container">
-                {s.items.map((item) => (
-                  <span key={item} className="skill-pill">
-                    {item}
-                  </span>
+                {s.items.map((skill) => (
+                  <div key={skill.name} className="skill-item">
+                    <img
+                      src={getIconUrl(skill.icon)}
+                      alt={skill.name}
+                      className="skill-icon"
+                      style={{ border: "none" }}
+                    />
+                    <span className="skill-name">{skill.name}</span>
+                  </div>
                 ))}
               </div>
             </div>
@@ -297,49 +321,69 @@ function Projects() {
     {
       title: "TEPOK",
       subtitle: "Godot 4",
-      desc: "1st Runner Up @ UP Game Jam. A collaborative puzzle platformer featuring dynamic UI and Audio systems.",
-      tags: ["Godot 4", "GDScript", "Team"],
+      desc: "1st Runner Up @ UP Game Jam. A collaborative puzzle platformer with dynamic systems.",
+      tags: ["Godot 4", "GDScript"],
       link: "https://github.com/drewdreww/tepok-game",
     },
     {
-      title: "UniMarket (ERP)",
-      subtitle: "Java, Spring Boot",
+      title: "UniMarket",
+      subtitle: "Spring Boot",
       desc: "Enterprise student management backend with RBAC using Spring Boot and MySQL.",
-      tags: ["Java", "Spring Boot", "NextJS"],
+      tags: ["Java", "Spring Boot"],
       link: "https://github.com/Jxrtd/UniMarket",
     },
     {
       title: "BankRap",
-      subtitle: "Python, Django",
-      desc: "Peer-to-peer micro-lending platform implementing secure financial transaction logic.",
-      tags: ["Python", "Django", "MySQL"],
+      subtitle: "Django",
+      desc: "Peer-to-peer micro-lending platform implementing secure financial logic.",
+      tags: ["Python", "Django"],
       link: "https://github.com/jangkayl/BankRap---Django",
     },
     {
-      title: "WildQueue (QMS)",
+      title: "WildQueue",
       subtitle: "Java, MySQL",
       desc: "Digital concierge capstone built for CIT-U utilizing solid OOP foundations.",
-      tags: ["Java", "MySQL", "OOP"],
+      tags: ["Java", "MySQL"],
       link: "https://github.com/jangkayl/WildQueue",
     },
   ];
   return (
-    <section className="section bg-alt" id="projects">
+    <section className="section" id="projects">
       <div className="container">
         <h2 className="section-title">
-          Epic <span className="gradient-text">Adventures</span>
+          ACTIVE <span className="gradient-text">TASKS</span>
         </h2>
         <div className="project-grid">
           {projects.map((p, i) => (
             <div key={i} className="glass-project-card">
               <div className="project-header">
-                <h3>{p.title}</h3>
-                <span className="project-subtitle">{p.subtitle}</span>
+                <h3 style={{ fontSize: "2rem", color: "var(--primary-cyan)" }}>
+                  {p.title}
+                </h3>
+                <span style={{ fontWeight: 900, textTransform: "uppercase", color: "var(--primary-pink)" }}>
+                  {p.subtitle}
+                </span>
               </div>
-              <p className="project-desc-long">{p.desc}</p>
-              <div className="tag-row">
+              <p style={{ margin: "1rem 0", lineHeight: 1.4 }}>{p.desc}</p>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "0.5rem",
+                  flexWrap: "wrap",
+                  marginBottom: "1.5rem",
+                }}
+              >
                 {p.tags.map((t) => (
-                  <span key={t} className="mini-tag">
+                  <span
+                    key={t}
+                    style={{
+                      background: "var(--ink-black)",
+                      color: "white",
+                      padding: "0.2rem 0.6rem",
+                      fontSize: "0.8rem",
+                      fontWeight: 700,
+                    }}
+                  >
                     {t}
                   </span>
                 ))}
@@ -348,9 +392,10 @@ function Projects() {
                 href={p.link}
                 target="_blank"
                 rel="noreferrer"
-                className="project-link"
+                className="btn btn-outline"
+                style={{ fontSize: "1rem", padding: "0.5rem 1rem" }}
               >
-                View Repo →
+                VIEW INTEL →
               </a>
             </div>
           ))}
@@ -361,8 +406,19 @@ function Projects() {
 }
 
 function App() {
+  const pows = usePowEffect();
+
   return (
     <div className="app-wrapper">
+      {pows.map((pow) => (
+        <div
+          key={pow.id}
+          className="interactive-pow"
+          style={{ left: pow.x, top: pow.y }}
+        >
+          {pow.text}
+        </div>
+      ))}
       <Navigation />
       <main>
         <Hero />
@@ -371,7 +427,7 @@ function App() {
         <Projects />
       </main>
       <footer className="footer">
-        <p>© {new Date().getFullYear()} Jexter Alido | Sailing through CIT-U</p>
+        <p>© {new Date().getFullYear()} JEXTER ALIDO | PROTECTING THE STACK</p>
       </footer>
     </div>
   );
