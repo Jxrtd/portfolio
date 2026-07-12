@@ -85,7 +85,7 @@ function usePowEffect() {
   const [pows, setPows] = useState([]);
 
   const addPow = (e) => {
-    const texts = ["ERROR!", "SYNC!", "BEEP!", "OVERLOAD!", "GLITCH!", "ACCESS!"];
+    const texts = ["BUILD", "COMPILE", "RUN", "DEPLOY", "SUCCESS", "OPTIMIZE"];
     const text = texts[Math.floor(Math.random() * texts.length)];
     const newPow = {
       id: Date.now(),
@@ -114,16 +114,16 @@ function Navigation() {
     <nav className="nav-blur">
       <div className="nav-content">
         <div className="nav-logo">
-          <span className="logo-text">⚡ JEXTER_OS</span>
+          <span className="logo-text">⚡ Jexter Alido</span>
         </div>
         <button className="mobile-menu-toggle" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? "✕" : "☰"}
         </button>
         <div className={`nav-links ${isOpen ? "open" : ""}`}>
-          <a href="#about" onClick={() => setIsOpen(false)}>ROOT</a>
-          <a href="#cv-summary" onClick={() => setIsOpen(false)}>LOGS</a>
-          <a href="#skills" onClick={() => setIsOpen(false)}>MODULES</a>
-          <a href="#projects" onClick={() => setIsOpen(false)}>TASKS</a>
+          <a href="#about" onClick={() => setIsOpen(false)}>ABOUT</a>
+          <a href="#cv-summary" onClick={() => setIsOpen(false)}>JOURNEY</a>
+          <a href="#skills" onClick={() => setIsOpen(false)}>SKILLS</a>
+          <a href="#projects" onClick={() => setIsOpen(false)}>PROJECTS</a>
         </div>
       </div>
     </nav>
@@ -136,28 +136,28 @@ function Hero() {
       <div className="container">
         <div className="hero-container">
           <div className="hero-content">
-            <div className="hero-badge">VERSION 1.0.3 // CIT-U</div>
+            <div className="hero-badge">SOFTWARE ENGINEER // CIT-U</div>
             <h1 className="hero-title">
-              THE <span className="gradient-text">VOID</span> RUNNER
+              JEXTER <span className="gradient-text">ALIDO</span>
             </h1>
             <p className="hero-description">
-              Initiating sequence... I am Jexter Alido. A full-stack architect 
-              operating in the digital shadows. Specialized in mobile systems, 
-              game engines, and high-performance backends.
+              I am a dedicated Computer Science student and Software Engineer specializing 
+              in full-stack development, mobile systems, and high-performance backends. 
+              Focused on crafting clean, efficient, and scalable software solutions.
             </p>
             <div className="hero-actions">
               <a
                 href="mailto:aldiojexter790@gmail.com"
                 className="btn btn-primary"
               >
-                <MailIcon /> ESTABLISH_LINK
+                <MailIcon /> CONTACT ME
               </a>
               <a
                 href={myResume}
                 download="Alido_Resume.pdf"
                 className="btn btn-outline"
               >
-                <DownloadIcon /> DATA_CORE (RESUME)
+                <DownloadIcon /> DOWNLOAD RESUME
               </a>
             </div>
           </div>
@@ -173,11 +173,11 @@ function Hero() {
               <div className="code-display">
                 <pre>
                   <code>
-                    <span style={{ color: "#ff00ff" }}>class</span> Hero {"{"}
+                    <span style={{ color: "#ff00ff" }}>class</span> Developer {"{"}
                     {"\n  "}name:{" "}
-                    <span style={{ color: "#ffff00" }}>"Jexter"</span>,{"\n  "}
-                    power:{" "}
-                    <span style={{ color: "#ffff00" }}>"Full-Stack"</span>
+                    <span style={{ color: "#ffff00" }}>"Jexter Alido"</span>,{"\n  "}
+                    role:{" "}
+                    <span style={{ color: "#ffff00" }}>"Full-Stack Developer"</span>
                     {"\n"}
                     {"}"}
                   </code>
@@ -192,6 +192,15 @@ function Hero() {
 }
 
 function CVExperience() {
+  const experience = [
+    {
+      year: "June 15, 2026 - Present",
+      title: "Full Stack Intern",
+      org: "Talleco | Jobtarget",
+      desc: "Contributing to the design, development, and maintenance of full-stack web applications, implementing key features, and collaborating within an agile development team.",
+    },
+  ];
+
   const education = [
     {
       year: "2023 - Present",
@@ -211,30 +220,61 @@ function CVExperience() {
     <section className="section" id="cv-summary">
       <div className="container">
         <h2 className="section-title">
-          CORE <span className="gradient-text">LOGS</span>
+          MY <span className="gradient-text">JOURNEY</span>
         </h2>
-        <div className="comic-panel">
-          <div className="timeline">
-            {education.map((edu, index) => (
-              <div
-                key={index}
-                className="cv-item"
-                style={{
-                  borderLeft: "4px solid var(--primary-cyan)",
-                  paddingLeft: "1.5rem",
-                  marginBottom: "2rem",
-                }}
-              >
-                <p style={{ fontWeight: 900, color: "var(--primary-pink)" }}>
-                  {edu.year}
-                </p>
-                <h3 style={{ fontFamily: "Bangers", fontSize: "1.5rem", color: "white" }}>
-                  {edu.title}
-                </h3>
-                <p style={{ fontWeight: 700 }}>{edu.org}</p>
-                <p>{edu.desc}</p>
-              </div>
-            ))}
+        <div className="journey-grid">
+          {/* Experience Column */}
+          <div className="comic-panel">
+            <h3 className="journey-column-title">Work Experience</h3>
+            <div className="timeline">
+              {experience.map((item, index) => (
+                <div
+                  key={index}
+                  className="cv-item"
+                  style={{
+                    borderLeft: "4px solid var(--primary-cyan)",
+                    paddingLeft: "1.5rem",
+                    marginBottom: "2rem",
+                  }}
+                >
+                  <p style={{ fontWeight: 900, color: "var(--primary-pink)" }}>
+                    {item.year}
+                  </p>
+                  <h4 style={{ fontFamily: "Bangers", fontSize: "1.5rem", color: "white" }}>
+                    {item.title}
+                  </h4>
+                  <p style={{ fontWeight: 700 }}>{item.org}</p>
+                  <p>{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Education Column */}
+          <div className="comic-panel">
+            <h3 className="journey-column-title">Education</h3>
+            <div className="timeline">
+              {education.map((item, index) => (
+                <div
+                  key={index}
+                  className="cv-item"
+                  style={{
+                    borderLeft: "4px solid var(--primary-cyan)",
+                    paddingLeft: "1.5rem",
+                    marginBottom: "2rem",
+                  }}
+                >
+                  <p style={{ fontWeight: 900, color: "var(--primary-pink)" }}>
+                    {item.year}
+                  </p>
+                  <h4 style={{ fontFamily: "Bangers", fontSize: "1.5rem", color: "white" }}>
+                    {item.title}
+                  </h4>
+                  <p style={{ fontWeight: 700 }}>{item.org}</p>
+                  <p>{item.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -245,7 +285,7 @@ function CVExperience() {
 function Skills() {
   const skills = [
     {
-      category: "RUNTIME_LANGS",
+      category: "LANGUAGES",
       items: [
         { name: "Java", icon: "java/java-original.svg" },
         { name: "Python", icon: "python/python-original.svg" },
@@ -255,7 +295,7 @@ function Skills() {
       ],
     },
     {
-      category: "INTERFACE_MODULES",
+      category: "FRONTEND",
       items: [
         { name: "React", icon: "react/react-original.svg" },
         { name: "NextJS", icon: "nextjs/nextjs-original.svg" },
@@ -263,7 +303,7 @@ function Skills() {
       ],
     },
     {
-      category: "DATA_STRUCTURES",
+      category: "BACKEND & DATABASES",
       items: [
         { name: "Spring", icon: "spring/spring-original.svg" },
         { name: "Django", icon: "django/django-plain.svg" },
@@ -271,7 +311,7 @@ function Skills() {
       ],
     },
     {
-      category: "KERNEL_TOOLS",
+      category: "TOOLS & ENGINES",
       items: [
         { name: "Godot", icon: "godot/godot-original.svg" },
         { name: "Git", icon: "git/git-original.svg" },
@@ -286,7 +326,7 @@ function Skills() {
     <section className="section" id="skills">
       <div className="container">
         <h2 className="section-title">
-          TECH <span className="gradient-text">MODULES</span>
+          TECHNICAL <span className="gradient-text">SKILLS</span>
         </h2>
         <div className="skills-bento-grid">
           {skills.map((s, i) => (
@@ -351,7 +391,7 @@ function Projects() {
     <section className="section" id="projects">
       <div className="container">
         <h2 className="section-title">
-          ACTIVE <span className="gradient-text">TASKS</span>
+          FEATURED <span className="gradient-text">PROJECTS</span>
         </h2>
         <div className="project-grid">
           {projects.map((p, i) => (
@@ -395,7 +435,7 @@ function Projects() {
                 className="btn btn-outline"
                 style={{ fontSize: "1rem", padding: "0.5rem 1rem" }}
               >
-                VIEW INTEL →
+                VIEW PROJECT →
               </a>
             </div>
           ))}
@@ -427,7 +467,7 @@ function App() {
         <Projects />
       </main>
       <footer className="footer">
-        <p>© {new Date().getFullYear()} JEXTER ALIDO | PROTECTING THE STACK</p>
+        <p>© {new Date().getFullYear()} Jexter Alido. All rights reserved.</p>
       </footer>
     </div>
   );

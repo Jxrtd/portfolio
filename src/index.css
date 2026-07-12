@@ -428,6 +428,24 @@ img {
   100% { transform: scale(1.5) rotate(10deg); opacity: 0; }
 }
 
+/* --- Journey Grid --- */
+.journey-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 3rem;
+  align-items: start;
+}
+
+.journey-column-title {
+  font-family: 'Bangers', cursive;
+  font-size: 2.5rem;
+  color: var(--primary-cyan);
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--primary-cyan);
+  padding-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
 /* --- RESPONSIVE --- */
 @media (max-width: 1024px) {
   .hero-container { grid-template-columns: 1fr; text-align: center; }
@@ -441,5 +459,5 @@ img {
   .section-title { font-size: 3.5rem; }
   .hero-title { font-size: 4rem; }
   .btn { width: 100%; justify-content: center; }
-  .skills-bento-grid, .project-grid { grid-template-columns: 1fr; }
+  .skills-bento-grid, .project-grid, .journey-grid { grid-template-columns: 1fr; }
 }

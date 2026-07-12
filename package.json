@@ -1,5 +1,6 @@
 {
-  "name": "my-portfolio",
+  "name": "jexter-alido-portfolio",
+  "description": "Professional developer portfolio of Jexter Alido, built with React and Vite.",
   "private": true,
   "version": "0.0.0",
   "type": "module",
